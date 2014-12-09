@@ -1,0 +1,142 @@
+/* all colors from Chris Kempson's Base 16 project, Eighties variant
+ * http://chriskempson.github.io/base16/#eighties
+ */
+
+body, button, input {
+  font-size: 14px;
+}
+
+body {
+  max-width: 1000px;
+  margin: auto;
+  padding: 1em;
+  background-color: #f2f0ec;
+
+  line-height: 1.4;
+  text-align: center;
+  color: #2d2d2d;
+  font-family: "Lucida Grande", Arial, Verdana, sans-serif; 
+}
+
+button {
+  padding: 0.5em;
+  background-color: #6699cc;
+  border: none;
+  border-radius: 0.5em;
+  box-shadow: 0 0.2em rgba(45, 45, 45, 0.1);
+
+  color: #f2f0ec;
+}
+
+button:hover {
+  box-shadow: 0 0.25em rgba(45, 45, 45, 0.1);
+  transform: translateY(-0.1em);
+  transition: all 0.2s;
+}
+
+button:active {
+  box-shadow: none;
+  transform: translateY(0.1em);
+  transition: all 0.01s;
+}
+
+/* default to showing only the no-geo-api prompt,
+ * as users w/o js will not have the geo api, 
+ * meaning they should only see the manual address entry.
+ * Making the game work w/o js, however, was out of scope for this prompt.
+ */
+p#geolocation-api-prompt {
+  display: none;
+}
+
+form#manual-location-form{
+  display: inline;
+}
+
+div#user-location-status {
+  display: none; /* default to hidden, display when we have user's location */
+  margin-bottom: 3em;
+}
+
+img#user-location-sat-image{
+  width: 300px;
+  height: 300px;
+}
+
+div#billboard {
+  display: none; /* default to hidden, display when we have user's location */
+  margin-top: 1em;
+  padding: 0.5em;
+  border-radius: 0.5em;
+  color: white;
+  text-shadow: 0 0.1em rgba(45, 45, 45, 0.1);
+}
+
+div#billboard.correct {
+  background-color: #99cc99;
+}
+
+div#billboard.incorrect {
+  background-color: #f2777a;
+}
+
+div#result {
+  display: inline-block;
+  padding-left: 0.5em;
+}
+
+div#play-again {
+  display: inline-block;
+}
+
+span#play-again-prompt {
+  padding-right: 0.5em;
+}
+
+div#candidate-sat-images-section {
+  display: none;
+}
+
+ul#candidate-sat-images-list {
+  padding: 0;
+  list-style-type: none;
+}
+
+ul#candidate-sat-images-list li {
+  display: inline-block;
+  padding: 1em;
+  width: 300px;
+  height: 300px;
+  border-radius: 0.5em;
+}
+
+ul#candidate-sat-images-list li:hover {
+  transform: translateY(-0.1em);
+  transition: all 0.2s;
+}
+
+ul#candidate-sat-images-list li:active {
+  transform: translateY(0.1em);
+  transition: all 0.01s;
+}
+
+ul#candidate-sat-images-list li.user-incorrect {
+  background-color: #f2777a;
+}
+
+ul#candidate-sat-images-list li.user-correct {
+  background-color: #99cc99;
+}
+
+ul#candidate-sat-images-list li.real-closest {
+  background-color: #99cc99;
+}
+
+@media (max-width: 400px) {
+  img#user-location-sat-image,
+  ul#candidate-sat-images-list li,
+  ul#candidate-sat-images-list li img {
+    width: 250px;
+    height: 250px;
+  }
+}
